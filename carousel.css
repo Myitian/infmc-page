@@ -1,0 +1,39 @@
+.carousel {
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.carousel>.slide {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    transition: ease 1s;
+}
+
+.carousel>.controller {
+    position: absolute;
+    height: 6em;
+    width: 2.5em;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 4em 4em;
+    background-color: #0004;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+}
+
+.carousel>.controller-prev {
+    background-image: url("left.svg");
+    left: 0;
+}
+
+.carousel>.controller-next {
+    background-image: url("right.svg");
+    right: 0;
+}

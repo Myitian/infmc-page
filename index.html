@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>主页</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="carousel.css">
+</head>
+
+<body>
+  <nav id="tabs" class="navbar">
+    <ul>
+      <li>
+        <a href="#home" data-id="home" class="active">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M261.56 101.28a8 8 0 0 0-11.06 0L66.4 277.15a8 8 0 0 0-2.47 5.79L63.9 448a32 32 0 0 0 32 32H192a16 16 0 0 0 16-16V328a8 8 0 0 1 8-8h80a8 8 0 0 1 8 8v136a16 16 0 0 0 16 16h96.06a32 32 0 0 0 32-32V282.94a8 8 0 0 0-2.47-5.79z" fill="currentColor"></path>
+            <path d="M490.91 244.15l-74.8-71.56V64a16 16 0 0 0-16-16h-48a16 16 0 0 0-16 16v32l-57.92-55.38C272.77 35.14 264.71 32 256 32c-8.68 0-16.72 3.14-22.14 8.63l-212.7 203.5c-6.22 6-7 15.87-1.34 22.37A16 16 0 0 0 43 267.56L250.5 69.28a8 8 0 0 1 11.06 0l207.52 198.28a16 16 0 0 0 22.59-.44c6.14-6.36 5.63-16.86-.76-22.97z" fill="currentColor"></path>
+          </svg>
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="#docs" data-id="docs">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M439.91 112h-23.82a.09.09 0 0 0-.09.09V416a32 32 0 0 0 32 32a32 32 0 0 0 32-32V152.09A40.09 40.09 0 0 0 439.91 112z" fill="currentColor"></path>
+            <path d="M384 416V72a40 40 0 0 0-40-40H72a40 40 0 0 0-40 40v352a56 56 0 0 0 56 56h342.85a1.14 1.14 0 0 0 1.15-1.15a1.14 1.14 0 0 0-.85-1.1A64.11 64.11 0 0 1 384 416zM96 128a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v64a16 16 0 0 1-16 16h-64a16 16 0 0 1-16-16zm208 272H112.45c-8.61 0-16-6.62-16.43-15.23A16 16 0 0 1 112 368h191.55c8.61 0 16 6.62 16.43 15.23A16 16 0 0 1 304 400zm0-64H112.45c-8.61 0-16-6.62-16.43-15.23A16 16 0 0 1 112 304h191.55c8.61 0 16 6.62 16.43 15.23A16 16 0 0 1 304 336zm0-64H112.45c-8.61 0-16-6.62-16.43-15.23A16 16 0 0 1 112 240h191.55c8.61 0 16 6.62 16.43 15.23A16 16 0 0 1 304 272zm0-64h-63.55c-8.61 0-16-6.62-16.43-15.23A16 16 0 0 1 240 176h63.55c8.61 0 16 6.62 16.43 15.23A16 16 0 0 1 304 208zm0-64h-63.55c-8.61 0-16-6.62-16.43-15.23A16 16 0 0 1 240 112h63.55c8.61 0 16 6.62 16.43 15.23A16 16 0 0 1 304 144z" fill="currentColor"></path>
+          </svg>
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="#donate" data-id="donate" onclick="redirectToDonate()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192s192-86 192-192z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path>
+            <path d="M256 360a16 16 0 0 1-9-2.78c-39.3-26.68-56.32-45-65.7-56.41c-20-24.37-29.58-49.4-29.3-76.5c.31-31.06 25.22-56.33 55.53-56.33c20.4 0 35 10.63 44.1 20.41a6 6 0 0 0 8.72 0c9.11-9.78 23.7-20.41 44.1-20.41c30.31 0 55.22 25.27 55.53 56.33c.28 27.1-9.31 52.13-29.3 76.5c-9.38 11.44-26.4 29.73-65.7 56.41A16 16 0 0 1 256 360z" fill="currentColor"></path>
+          </svg>
+          Donate
+        </a>
+      </li>
+      <li>
+        <a href="#posts" data-id="posts">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208s208-93.31 208-208S370.69 48 256 48zm0 319.91a20 20 0 1 1 20-20a20 20 0 0 1-20 20zm21.72-201.15l-5.74 122a16 16 0 0 1-32 0l-5.74-121.94v-.05a21.74 21.74 0 1 1 43.44 0z" fill="currentColor"></path>
+          </svg>
+          Posts
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <section data-id="home" data-name="主页" class="active">
+    <div class="content">
+      <h1>主页</h1>
+      <div class="carousel-wrapper">
+        <div class="carousel" data-slide="0" data-direction="1">
+          <div class="slide active" style="transform: translateX(0%);">
+            <img src="https://infmc.dpdns.org/new/assets/bg1.png" alt="Image 1">
+          </div>
+          <div class="slide" style="transform: translateX(100%);">
+            <img src="https://infmc.dpdns.org/new/assets/bg2.png" alt="Image 2">
+          </div>
+          <div class="slide" style="transform: translateX(200%);">
+            <img src="https://infmc.dpdns.org/new/assets/bg3.png" alt="Image 3">
+          </div>
+          <div class="slide" style="transform: translateX(300%);">
+            <img src="https://infmc.dpdns.org/new/assets/bg4.png" alt="Image 4">
+          </div>
+          <div class="slide" style="transform: translateX(400%);">
+            <img src="https://infmc.dpdns.org/new/assets/bg5.png" alt="Image 5">
+          </div>
+          <button class="controller controller-prev"></button>
+          <button class="controller controller-next"></button>
+          <div class="carousel-title-wrapper">
+            <div class="carousel-title">InfMinecraft<br>我的世界服务器</div>
+          </div>
+        </div>
+      </div>
+      <h2>Fun 趣玩 🎉</h2>
+      <p>Experience endless possibilities on our Minecraft Server! Enjoy a versatile gameplay experience combining SMP survival with the thrilling conflicts between players. Explore, build, fight, and strategize to your heart's content in a unique adventure.</p>
+      <p>在我们的 Minecraft 服务器上体验无限的可能性！享受将 SMP 生存与玩家之间惊心动魄的冲突相结合的多功能游戏体验。在一次独特的冒险中随心所欲地探索、建造、战斗和制定战略。</p>
+      <h2>Secure 安全 🔒</h2>
+      <p>We prioritize your security. Our server implements strong measures to protect your data. With encryption protocols and regular backups, your progress and personal information are safe, allowing you to focus on the game.</p>
+      <p>我们优先考虑您的安全。我们的服务器采取强有力的措施来保护您的数据。通过加密协议和定期备份，您的进度和个人信息是安全的，让您可以专注于游戏。</p>
+      <h2>Support 帮助 💬</h2>
+      <p>Join our active Minecraft Server community! Connect, collaborate, and share your adventures with our welcoming community. Our dedicated team and passionate players are here to help, whether you're a seasoned player or new to the game. Let's create lasting memories together!</p>
+      <p>加入我们活跃的 Minecraft 服务器社区！与我们热情的社区联系、协作并分享您的冒险经历。无论您是经验丰富的玩家还是游戏新手，我们敬业的团队和热情的玩家都会为您提供帮助。让我们一起创造永恒的回忆！</p>
+    </div>
+  </section>
+  <section data-id="docs" data-name="文档">
+    <div class="sidebar">
+      <div>
+        <h2>文档目录</h2>
+        <ul>
+          <li><a href="#rules-intro">规则概述</a></li>
+          <li><a href="#chat-rules">交流群规则</a></li>
+          <li><a href="#server-rules">服务器规则</a></li>
+          <li><a href="#feedback">内容反馈</a></li>
+          <li><a href="#activities">活动举行</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="content">
+      <h1 id="rules-intro">规则概述</h1>
+      <p>本文为您在进入infMC服务器并且进行游玩时必须遵守的规则。此规则适用于任意infMC的服务器。如果用户不
+        同意遵守此规则，则不得使用infMC服务器所提供的服务，包括游玩服务器。当您提交了infMC服务器审核表或进入infMC交流群或进入infMC服
+        务器之后，即视为您已同意遵守此文的所有规则。</p>
+      <p>若您违反了规则，infMC有权利停止为您提供任何服务，不包括游玩服务器，使用与本服务器有关的功能等。</p>
+      <p>此规则提到的所有判罚仅做参照，实际处罚将会根据违规情况而有变化。</p>
+      <p>此规则将会持续更新。规则修改后会在修改3天后生效（除非发现重大漏洞）</p>
+      <p>最后更新时间：<time datetime="2025-03-29T18:16+08:00">2025/3/29 18:16</time></p>
+      <h2 id="chat-rules">交流群规则</h2>
+      <ol>
+        <li>禁止在交流群内引战，抹黑，带节奏，拉踩，恐吓他人。</li>
+        <li>禁止在交流群内造谣任何人，或者群体，或者其他服务器，编造不实信息。</li>
+        <li>禁止在交流群内以任何形式，包括但不限于发送消息/文件/图片/链接/视频，修改名称，修改头像等方式传播黄赌毒内容。</li>
+        <li>您可以不赞同别人的观点，但是禁止在交流群内以任意形式，包括但不限于发送消息/文件/图片/链接/视频，修改名称，修改头像等方式刻意侮辱他人。</li>
+        <li>禁止在交流群内以任何形式，包括但不限于发送消息/文件/图片/链接/视频，修改名称，修改头像等方式传播他人的个人隐私信息。</li>
+        <li>禁止在交流群里对发布有关任意群体的歧视内容。</li>
+        <li>禁止在交流群内讨论政治敏感话题。</li>
+        <li>禁止在交流群内打广告，包括但不限于宣传其他服务器。</li>
+        <li>禁止在服务器内传播损害游戏体验的任何内容，包括但不限于外挂客户端，外挂工具等。</li>
+        <li>禁止在服务器内外以人民币交易服务器内的货币，装备等物品。</li>
+        <li>为了控制服务器交流群内的人数，服务器会不定时清人。清人的过程中，我们会从交流群群内移除部分半年/一年以上未发言的玩家。如果您被误踢了，您可以重新申请加入服务器交流群并且备注被误踢，我们证实后会有补偿。</li>
+      </ol>
+      <h2 id="server-rules">服务器规则</h2>
+      <p>（服务器规则将继承交流群规则的所有规则）</p>
+      <ol>
+        <li>禁止以任何不正当或违法的方式在服务器内获得优势。（包括使用外挂，矿透，恶意利用服务器Bug，不包括MC原版特性）</li>
+        <li>禁止在未经过同意下，破坏他人的任意建筑，盗窃他人的物品。</li>
+        <li>禁止在未经过同意下影响服务器的正常运行，包括但不限于卡服，DDOS以及其他网络攻击等行为。</li>
+        <li>禁止以任意不当形式影响到他人的游玩体验。</li>
+        <li>禁止滥用管理员权限。</li>
+        <li>判罚将根据严重程度而定，违反规则的玩家可能会：
+          <ul>
+            <li>被警告，多次警告后还继续违反规则的话则会面临封禁</li>
+            <li>面临1天至永久的封禁</li>
+          </ul>
+        </li>
+      </ol>
+      <h2 id="feedback">内容反馈</h2>
+      <p>为了能够持续改进我们的服务器，大家可以自由的在交流群内提出意见，并且创建投票来确认是否做出这个改变。</p>
+      <p>如果大家想要添加或者删除某些内容时，大家要注意以下几点：</p>
+      <ul>
+        <li>该内容是否符合服务器规则</li>
+        <li>该内容是否会让玩家之间变得不平等</li>
+        <li>该内容是否会让游戏变得过于困难/简单</li>
+        <li>该内容是否会负面影响到服务器其他玩法</li>
+      </ul>
+      <p>如果你想要服务器添加或删除某些内容时，你可以发起投票，让服务器内其他玩家一起来投票是否添加/删除。在发起投票后，最终的决定将会由以下几个方面决定（优先度从高到低）：</p>
+      <ol>
+        <li>投票支持/反对占比
+          <ul>
+            <li>支持人数占比达到60%以上则符合这一点</li>
+          </ul>
+        </li>
+        <li>是否符合服务器规则（第一部分和第二部分）</li>
+        <li>投票参与人数
+          <ul>
+            <li>投票参与人数尽量在8人以上</li>
+          </ul>
+        </li>
+      </ol>
+      <p>在投票结束后，服主和管理员将在7到31天内尽量推出这个内容。</p>
+      <h2 id="activities">活动举行</h2>
+      <p>由于服主和管理员们一般只能在节假日时才有多的空闲时间来举行活动，如果你想要举行某些活动的话，欢迎在群里提出。</p>
+      <p>如果你想要举办一个活动时，你需要负责该活动的组织和举行。活动主要分为两类：长期活动以及短期活动。你需要决定活动涉及到哪些环节，会给予参与者哪些奖励，以及在什么时候举办这个活动。</p>
+      <p>玩家自主举办的活动也是按照第三部分的投票来决定是否举行。</p>
+    </div>
+  </section>
+  <section data-id="donate" data-name="捐赠">
+    <div class="content">
+      <h1>捐赠</h1>
+      <p><a href="https://afdian.tv/a/infmc">未被跳转？点此跳转！</a></p>
+    </div>
+  </section>
+  <section data-id="posts" data-name="公告">
+    <div class="content">
+      <h1>公告</h1>
+      <p>暂无公告内容</p>
+    </div>
+  </section>
+  <script src="index.js"></script>
+  <script src="carousel.js"></script>
+</body>
+
+</html>
