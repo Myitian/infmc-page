@@ -1,5 +1,5 @@
 :root {
-    --nav-height: 4em;
+    --nav-height: 4rem;
     --background-primary: #fff;
     --background-secondary: #ccc;
     --text: #222;
@@ -9,6 +9,10 @@
     scroll-behavior: smooth;
     background-color: var(--background-primary);
     color: var(--text);
+}
+
+[id] {
+    scroll-margin-top: var(--nav-height);
 }
 
 @media (prefers-color-scheme: dark) {

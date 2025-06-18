@@ -8,7 +8,7 @@
   <title>主页</title>
   <style>
     :root {
-      --nav-height: 4em;
+      --nav-height: 4rem;
       --background-primary: #fff;
       --background-secondary: #ccc;
       --text: #222;
@@ -18,6 +18,10 @@
       scroll-behavior: smooth;
       background-color: var(--background-primary);
       color: var(--text);
+    }
+
+    [id] {
+      scroll-margin-top: var(--nav-height);
     }
 
     @media (prefers-color-scheme: dark) {
@@ -325,14 +329,16 @@
   </section>
   <section data-id="docs" data-name="文档">
     <div class="sidebar">
-      <h2>文档目录</h2>
-      <ul>
-        <li><a href="#rules-intro">规则概述</a></li>
-        <li><a href="#chat-rules">交流群规则</a></li>
-        <li><a href="#server-rules">服务器规则</a></li>
-        <li><a href="#feedback">内容反馈</a></li>
-        <li><a href="#activities">活动举行</a></li>
-      </ul>
+      <div>
+        <h2>文档目录</h2>
+        <ul>
+          <li><a href="#rules-intro">规则概述</a></li>
+          <li><a href="#chat-rules">交流群规则</a></li>
+          <li><a href="#server-rules">服务器规则</a></li>
+          <li><a href="#feedback">内容反馈</a></li>
+          <li><a href="#activities">活动举行</a></li>
+        </ul>
+      </div>
     </div>
     <div class="content">
       <h1 id="rules-intro">规则概述</h1>
@@ -434,7 +440,7 @@
     function clickEvent(event) {
       /** @ts-ignore @type {HTMLButtonElement} */
       const self = event.target;
-      document.querySelector(`section[data-id="${self.dataset.id}"]`)?.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function detectHashChange() {
@@ -464,11 +470,36 @@
             page.classList.remove("active");
           }
         }
+      } else {
+        const element = document.getElementById(hash);
+        if (!element) {
+          return;
+        }
+        /** @type {HTMLElement} */
+        const ancestor = element.closest("section[data-id]");
+        if (!ancestor) {
+          return;
+        }
+        for (const tab of TABS) {
+          if (tab.dataset.id === ancestor.dataset.id) {
+            tab.classList.add("active");
+            anySelected = true;
+          } else {
+            tab.classList.remove("active");
+          }
+        }
+        for (const page of PAGES) {
+          if (page.dataset.id === ancestor.dataset.id) {
+            page.classList.add("active");
+            if (page.dataset.name) {
+              document.title = page.dataset.name;
+            }
+            anySelected = true;
+          } else {
+            page.classList.remove("active");
+          }
+        }
       }
-    }
-
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function redirectToDonate() {
