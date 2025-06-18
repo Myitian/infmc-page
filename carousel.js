@@ -45,6 +45,14 @@ function changeSlide(carousel) {
     }
 }
 
+/**
+ * @param {string} str 
+ */
+function parseBoolean(str) {
+    str = String(str).toLowerCase().trim();
+    return str === "true" || str === "" || (!isNaN(Number(str)) && Number(str) !== 0);
+}
+
 class Carousel {
     /**
      * @readonly
@@ -54,7 +62,15 @@ class Carousel {
     /**
      * @type {number}
      */
-    clock = 5000;
+    interval = 5000;
+    /**
+     * @type {number}
+     */
+    intervalAfterManual = 10000;
+    /**
+     * @type {number}
+     */
+    clock;
     /**
      * @param {HTMLElement} carousel
      */
@@ -72,17 +88,20 @@ class Carousel {
             next.addEventListener("click", this.nextSlide.bind(this))
         }
         observer.observe(this.carousel, config);
+        this.updateInterval();
+        this.clock = this.interval;
         window.setInterval(this.tick.bind(this), 200);
     };
     tick() {
         this.clock -= 200;
         if (this.clock <= 0) {
             this.autoSlide();
-            this.clock = 5000;
+            this.updateInterval();
+            this.clock = this.interval;
         }
     };
     prevSlide() {
-        this.clock = 10000;
+        this.clock = this.intervalAfterManual;
         let slide = parseInt(this.carousel.dataset.slide);
         if (slide > 0) {
             slide--;
@@ -90,7 +109,7 @@ class Carousel {
         this.carousel.dataset.slide = slide.toString();
     };
     nextSlide() {
-        this.clock = 10000;
+        this.clock = this.intervalAfterManual;
         let slide = parseInt(this.carousel.dataset.slide);
         const count_1 = this.carousel.querySelectorAll(".slide").length - 1;
         if (slide < count_1) {
@@ -104,6 +123,7 @@ class Carousel {
         if (!isFinite(slide)) {
             slide = 0;
         }
+        const oneWay = parseBoolean(this.carousel.dataset.oneway);
         const count_1 = this.carousel.querySelectorAll(".slide").length - 1;
         if (count_1 < 0) {
             return;
@@ -112,8 +132,12 @@ class Carousel {
             if (slide < 0) {
                 slide = 0;
             } else if (slide >= count_1) {
-                direction = -1;
-                slide--;
+                if (oneWay) {
+                    slide = 0;
+                } else {
+                    direction = -1;
+                    slide--;
+                }
             } else {
                 slide++;
             }
@@ -121,8 +145,12 @@ class Carousel {
             if (slide > count_1) {
                 slide = count_1;
             } else if (slide <= 0) {
-                direction = 1;
-                slide++;
+                if (oneWay) {
+                    slide = count_1;
+                } else {
+                    direction = 1;
+                    slide++;
+                }
             } else {
                 slide--;
             }
@@ -131,6 +159,20 @@ class Carousel {
         this.carousel.dataset.slide = slide.toString();
         this.carousel.dataset.direction = direction.toString();
     };
+    updateInterval() {
+        const interval = parseInt(this.carousel.dataset.interval);
+        if (interval > 0) {
+            this.interval = interval;
+        } else if (interval < 0) {
+            this.interval = Infinity;
+        }
+        const intervalAfterManual = parseInt(this.carousel.dataset.intervalAfterManual);
+        if (intervalAfterManual > 0) {
+            this.intervalAfterManual = intervalAfterManual;
+        } else if (interval < 0) {
+            this.intervalAfterManual = Infinity;
+        }
+    }
 }
 
 /** @ts-ignore @type {HTMLElement[]} */

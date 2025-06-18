@@ -195,7 +195,11 @@ body>section.active {
     margin: 10px auto auto auto;
 }
 
-.join-us:hover {
+.join-us:hover,
+.join-us:focus,
+.join-us:active {
+    color: #fff;
+    text-decoration: none;
     transform: scale(1.2);
 }
 
