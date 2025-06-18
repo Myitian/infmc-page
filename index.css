@@ -118,7 +118,13 @@ body>section.active {
 }
 
 .sidebar>div {
-    position: fixed;
+    position: sticky;
+    top: var(--nav-height);
+    padding: 1em 0;
+}
+
+.sidebar>div>h2:first-child {
+    margin-top: 0;
 }
 
 .sidebar ul {
@@ -214,4 +220,8 @@ body>section.active {
     .carousel-title-wrapper {
         font-size: 1.45rem;
     }
+}
+
+footer {
+    margin: 1em;
 }
