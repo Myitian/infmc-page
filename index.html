@@ -96,7 +96,7 @@
     </div>
   </section>
   <section data-id="docs" data-name="文档">
-    <div class="sidebar">
+    <aside class="sidebar active">
       <div>
         <h2>文档目录</h2>
         <ul>
@@ -107,7 +107,8 @@
           <li><a href="#activities">活动举行</a></li>
         </ul>
       </div>
-    </div>
+      <button onclick="toggleSidebar(event);">≡</button>
+    </aside>
     <div class="content">
       <h1 id="rules-intro">规则概述</h1>
       <p>本文为您在进入infMC服务器并且进行游玩时必须遵守的规则。此规则适用于任意infMC的服务器。如果用户不
@@ -193,6 +194,14 @@
   </footer>
   <script src="index.js"></script>
   <script src="carousel.js"></script>
+  <script>
+    /** @param {Event} event */
+    function toggleSidebar(event) {
+      /** @type {HTMLElement} */
+      const e = event.target;
+      e.closest(".sidebar").classList.toggle("active");
+    }
+  </script>
 </body>
 
 </html>

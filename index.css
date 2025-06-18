@@ -1,11 +1,15 @@
 :root {
     --nav-height: 4rem;
+    --sidebar-width: 8em;
     --background-primary: #fff;
     --background-secondary: #ccc;
     --text: #222;
     --text-link: #008ac5;
-    --text-link-focus: #00aeec;
+    --text-link-hover: #00aeec;
     --text-link-active: #00aeec;
+    --button: #ccc;
+    --button-hover: #bbb;
+    --button-active: #aaa;
     scroll-behavior: smooth;
     background-color: var(--background-primary);
     color: var(--text);
@@ -22,8 +26,11 @@
         --background-secondary: #000;
         --text: #ccc;
         --text-link: #00aeec;
-        --text-link-focus: #008ac5;
+        --text-link-hover: #008ac5;
         --text-link-active: #008ac5;
+        --button: #000;
+        --button-hover: #222;
+        --button-active: #444;
     }
 }
 
@@ -43,10 +50,9 @@ a {
     transition: all ease 0.5s;
 }
 
-a:hover,
-a:focus {
+a:hover {
     text-decoration: underline;
-    color: var(--text-link-focus);
+    color: var(--text-link-hover);
 }
 
 a:active {
@@ -91,8 +97,8 @@ section h1 {
     color: var(--text);
 }
 
-#tabs ul>li>a.active,
-#tabs ul>li>a:hover {
+#tabs ul>li>a:hover,
+#tabs ul>li>a.active {
     color: var(--background-primary);
     background-color: var(--text);
 }
@@ -117,14 +123,42 @@ body>section.active {
 .sidebar {
     flex-shrink: 0;
     padding: 0 1em;
-    width: 8em;
+    width: var(--sidebar-width);
     background-color: var(--background-secondary);
+    margin-left: calc(0px - var(--sidebar-width));
+    transition: margin ease 0.5s;
+}
+
+.sidebar.active {
+    margin-left: 0;
 }
 
 .sidebar>div {
     position: sticky;
     top: var(--nav-height);
     padding: 1em 0;
+}
+
+.sidebar>button {
+    position: fixed;
+    top: var(--nav-height);
+    font-size: 1em;
+    width: 2em;
+    height: 2em;
+    margin-left: calc(var(--sidebar-width) - 1em);
+    padding: 0 0 0.5em 0.5em;
+    background-color: var(--button);
+    color: var(--text);
+    border: none;
+    border-radius: 0 0 0 1.8em;
+}
+
+.sidebar>button:hover {
+    background-color: var(--button-hover);
+}
+
+.sidebar>button:active {
+    background-color: var(--button-active);
 }
 
 .sidebar>div>h2:first-child {
@@ -206,7 +240,6 @@ body>section.active {
 }
 
 .join-us:hover,
-.join-us:focus,
 .join-us:active {
     color: #fff;
     text-decoration: none;
