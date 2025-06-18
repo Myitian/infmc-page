@@ -170,18 +170,33 @@ body>section.active {
     font-size: 2.25rem;
     font-weight: 500;
     text-align: center;
-    background: linear-gradient(to right, #63e2b7, #2a947d);
-    -webkit-background-clip: text;
-    background-clip: text;
     color: transparent;
     opacity: 0.9;
     white-space: normal;
     line-height: 1.5;
     display: flex;
+    flex-direction: column;
 }
 
 .carousel-title {
-    margin: auto;
+    margin-top: auto;
+    background-image: linear-gradient(to right, #63e2b7, #2a947d);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.join-us {
+    display: block;
+    background-image: linear-gradient(to right, #63e2b7bf, #2a947dcc);
+    font-size: 0.6em;
+    padding: 0.2em 0.6em;
+    color: #fff;
+    text-decoration: none;
+    margin: 10px auto auto auto;
+}
+
+.join-us:hover {
+    transform: scale(1.2);
 }
 
 @media (max-width: 600px) {
