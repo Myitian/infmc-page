@@ -9,6 +9,7 @@
     scroll-behavior: smooth;
     background-color: var(--background-primary);
     color: var(--text);
+    height: 100%;
 }
 
 [id] {
@@ -32,6 +33,8 @@ body {
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -104,6 +107,7 @@ body>section {
     display: none;
     margin-top: var(--nav-height);
     width: 100%;
+    flex-grow: 1;
 }
 
 body>section.active {
@@ -223,5 +227,6 @@ body>section.active {
 }
 
 footer {
-    margin: 1em;
+    padding: 1em;
+    flex: 0;
 }
